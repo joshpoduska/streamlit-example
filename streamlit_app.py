@@ -146,13 +146,34 @@ else:
   
 import plotly.graph_objects as go
 
+# fig = go.Figure(go.Indicator(
+#     mode = "gauge+number",
+#     value = probability,
+#     domain = {'x': [0, 1], 'y': [0, 1]},
+#     title = {'text': "Probability to Repay"}))
+
 fig = go.Figure(go.Indicator(
-    mode = "gauge+number",
+    mode = "gauge+number+delta",
     value = probability,
     domain = {'x': [0, 1], 'y': [0, 1]},
-    title = {'text': "Probability to Repay"}))
+    title = {'text': "Probability to Repay", 'font': {'size': 24}},
+    delta = {'reference': 0.75, 'increasing': {'color': "RebeccaPurple"}},
+    gauge = {
+        'axis': {'range': [None, 1], 'tickwidth': 1, 'tickcolor': "darkblue"},
+        'bar': {'color': "darkblue"},
+        'bgcolor': "white",
+        'borderwidth': 2,
+        'bordercolor': "gray",
+        'steps': [
+            {'range': [0, 0.5], 'color': 'cyan'},
+            {'range': [0.5, 0.75], 'color': 'royalblue'}],
+        'threshold': {
+            'line': {'color': "red", 'width': 4},
+            'thickness': 0.75,
+            'value': 0.5}}))
 
-# fig.show()
+fig.update_layout(paper_bgcolor = "lavender", font = {'color': "darkblue", 'family': "Arial"})
+
 
  
 row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
