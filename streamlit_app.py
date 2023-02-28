@@ -166,8 +166,9 @@ fig = go.Figure(go.Indicator(
         'borderwidth': 2,
         'bordercolor': "gray",
         'steps': [
-            {'range': [0, 0.5], 'color': px.colors.qualitative.Plotly[1]},
-            {'range': [0.5, 0.75], 'color': 'royalblue'}],
+            {'range': [0, 0.4], 'color': px.colors.qualitative.Plotly[1]},
+            {'range': [0.4, 0.6], 'color': px.colors.qualitative.Plotly[9]},         
+            {'range': [0.6, 1], 'color': px.colors.qualitative.Plotly[2]}],
         'threshold': {
             'line': {'color': "red", 'width': 4},
             'thickness': 0.75,
