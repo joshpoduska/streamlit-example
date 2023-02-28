@@ -158,13 +158,12 @@ fig = go.Figure(go.Indicator(
     value = probability,
     domain = {'x': [0, 1], 'y': [0, 1]},
     title = {'text': "Probability to Repay", 'font': {'size': 24}},
-#     delta = {'reference': 0.75, 'increasing': {'color': "RebeccaPurple"}},
     gauge = {
-        'axis': {'range': [None, 1], 'tickwidth': 1, 'tickcolor': "darkblue"},
-        'bar': {'color': "darkblue"},
+        'axis': {'range': [None, 1], 'tickwidth': 1, 'tickcolor': "white"},
+        'bar': {'color': "white"},
         'bgcolor': "white",
         'borderwidth': 2,
-        'bordercolor': "gray",
+        'bordercolor': "white",
         'steps': [
             {'range': [0, 0.4], 'color': px.colors.qualitative.Plotly[1]},
             {'range': [0.4, 0.6], 'color': px.colors.qualitative.Plotly[9]},         
