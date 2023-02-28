@@ -136,19 +136,21 @@ for n in range(df.shape[0]):
  
 ### Results ###
  
+probability = {:.2f}".format(results[0]["score"]
+
 if results[0]["class"] == 1:
-    result_text = ":green[APPROVED] - probability = {:.2f}".format(results[0]["score"])
+    result_text = ":green[APPROVED]
 else:
-    result_text = ":red[DENIED] - probability = {:.2f}".format(1-results[0]["score"])
+    result_text = ":red[DENIED]
   
   
 import plotly.graph_objects as go
 
 fig = go.Figure(go.Indicator(
     mode = "gauge+number",
-    value = 270,
+    value = probability,
     domain = {'x': [0, .75], 'y': [0, .75]},
-    title = {'text': "Default Risk"}))
+    title = {'text': "Probability to Repay"}))
 
 fig.show()
 
