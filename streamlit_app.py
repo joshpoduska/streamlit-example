@@ -170,7 +170,7 @@ fig = go.Figure(go.Indicator(
             {'range': [0.6, 1], 'color': px.colors.qualitative.Plotly[2]}]
         }))
 
-fig.update_layout(paper_bgcolor = "lavender", font = {'color': "darkblue", 'family': "Arial"})
+fig.update_layout(paper_bgcolor = "black", font = {'color': "white", 'family': "Arial"})
 
 
  
