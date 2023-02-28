@@ -149,10 +149,10 @@ import plotly.graph_objects as go
 fig = go.Figure(go.Indicator(
     mode = "gauge+number",
     value = probability,
-    domain = {'x': [0, .75], 'y': [0, .75]},
+    domain = {'x': [0, 1], 'y': [0, 1]},
     title = {'text': "Probability to Repay"}))
 
-fig.show()
+# fig.show()
 
  
 row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
@@ -161,7 +161,7 @@ with row4_1:
     st.subheader(' ')
     st.subheader(result_text)
     st.subheader(' ')
-    st.plotly_chart(fig, use_container_width=False)
+    st.plotly_chart(fig, use_container_width=True)
     
     
 #     html_object = eli5.show_weights(xgc)
