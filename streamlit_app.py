@@ -161,7 +161,7 @@ fig = go.Figure(go.Indicator(
     gauge = {
         'axis': {'range': [None, 1], 'tickwidth': 1, 'tickcolor': "white"},
         'bar': {'color': "white"},
-        'bgcolor': "white",
+        'bgcolor': "red",
         'borderwidth': 2,
         'bordercolor': "white",
         'steps': [
