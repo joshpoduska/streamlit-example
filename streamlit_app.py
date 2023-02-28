@@ -136,7 +136,7 @@ for n in range(df.shape[0]):
  
 ### Results ###
  
-probability = {:.2f}".format(results[0]["score"]
+probability = results[0]["score"]
 
 if results[0]["class"] == 1:
     result_text = ":green[APPROVED]
