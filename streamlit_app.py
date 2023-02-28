@@ -159,7 +159,7 @@ with row4_1:
     st.subheader(' ')
     st.subheader(result_text)
     st.subheader(' ')
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=False)
     
     
 #     html_object = eli5.show_weights(xgc)
