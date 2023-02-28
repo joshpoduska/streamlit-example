@@ -139,9 +139,9 @@ for n in range(df.shape[0]):
 probability = results[0]["score"]
 
 if results[0]["class"] == 1:
-    result_text = ":green[APPROVED]
+    result_text = ":green[APPROVED]"
 else:
-    result_text = ":red[DENIED]
+    result_text = ":red[DENIED]"
   
   
 import plotly.graph_objects as go
