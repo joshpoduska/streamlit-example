@@ -157,7 +157,7 @@ fig = go.Figure(go.Indicator(
     mode = "gauge+number+delta",
     value = probability,
     domain = {'x': [0, 1], 'y': [0, 1]},
-    title = {'text': "Probability to Repay", 'font': {'size': 24}},
+    title = {'text': "Probability to Repay", 'font': {'size': 28}},
     gauge = {
         'axis': {'range': [None, 1], 'tickwidth': 1, 'tickcolor': "white"},
         'bar': {'color': "white"},
@@ -170,7 +170,7 @@ fig = go.Figure(go.Indicator(
             {'range': [0.6, 1], 'color': px.colors.qualitative.Plotly[2]}]
         }))
 
-fig.update_layout(paper_bgcolor = px.colors.qualitative.Dark24[5], font = {'color': "white", 'family': "Arial"})
+fig.update_layout(paper_bgcolor = "black", font = {'color': "white", 'family': "Arial"})
 
 
  
