@@ -145,6 +145,7 @@ else:
   
   
 import plotly.graph_objects as go
+import plotly.express as px
 
 # fig = go.Figure(go.Indicator(
 #     mode = "gauge+number",
@@ -165,7 +166,7 @@ fig = go.Figure(go.Indicator(
         'borderwidth': 2,
         'bordercolor': "gray",
         'steps': [
-            {'range': [0, 0.5], 'color': 'cyan'},
+            {'range': [0, 0.5], 'color': px.colors.qualitative.Plotly[1]},
             {'range': [0.5, 0.75], 'color': 'royalblue'}],
         'threshold': {
             'line': {'color': "red", 'width': 4},
