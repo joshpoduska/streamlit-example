@@ -147,8 +147,8 @@ import plotly.graph_objects as go
 fig = go.Figure(go.Indicator(
     mode = "gauge+number",
     value = 270,
-    domain = {'x': [0, 1], 'y': [0, 1]},
-    title = {'text': "Speed"}))
+    domain = {'x': [0, .75], 'y': [0, .75]},
+    title = {'text': "Default Risk"}))
 
 fig.show()
 
