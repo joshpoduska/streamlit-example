@@ -158,7 +158,7 @@ fig = go.Figure(go.Indicator(
     value = probability,
     domain = {'x': [0, 1], 'y': [0, 1]},
     title = {'text': "Probability to Repay", 'font': {'size': 24}},
-    delta = {'reference': 0.75, 'increasing': {'color': "RebeccaPurple"}},
+#     delta = {'reference': 0.75, 'increasing': {'color': "RebeccaPurple"}},
     gauge = {
         'axis': {'range': [None, 1], 'tickwidth': 1, 'tickcolor': "darkblue"},
         'bar': {'color': "darkblue"},
@@ -168,11 +168,8 @@ fig = go.Figure(go.Indicator(
         'steps': [
             {'range': [0, 0.4], 'color': px.colors.qualitative.Plotly[1]},
             {'range': [0.4, 0.6], 'color': px.colors.qualitative.Plotly[9]},         
-            {'range': [0.6, 1], 'color': px.colors.qualitative.Plotly[2]}],
-        'threshold': {
-            'line': {'color': "red", 'width': 4},
-            'thickness': 0.75,
-            'value': 0.5}}))
+            {'range': [0.6, 1], 'color': px.colors.qualitative.Plotly[2]}]
+        }))
 
 fig.update_layout(paper_bgcolor = "lavender", font = {'color': "darkblue", 'family': "Arial"})
 
