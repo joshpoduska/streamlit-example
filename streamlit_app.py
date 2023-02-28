@@ -154,7 +154,7 @@ import plotly.express as px
 #     title = {'text': "Probability to Repay"}))
 
 fig = go.Figure(go.Indicator(
-    mode = "gauge+number+delta",
+    mode = "gauge+number",
     value = probability,
     domain = {'x': [0, 1], 'y': [0, 1]},
     title = {'text': "Probability to Repay", 'font': {'size': 28}},
