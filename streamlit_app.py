@@ -155,6 +155,3 @@ with row4_1:
 #     st.markdown('The following table shows the impact each application characteristic had on the prediction.')
 # #     print(eli5.format_as_text(eli5.explain_weights(xgc)))
 #     st.markdown(print(eli5.format_as_text(eli5.show_prediction(xgc, df, feature_names=list(df.columns), show_feature_values=True))))
-    st.markdown('The following table shows the impact each application characteristic had on the prediction.')
-#     print(eli5.format_as_text(eli5.explain_weights(xgc)))
-    st.markdown(print(eli5.format_as_text(eli5.show_prediction(xgc, df, feature_names=list(df.columns), show_feature_values=True))))
