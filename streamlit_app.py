@@ -146,9 +146,12 @@ with row4_1:
     st.subheader('After scoring this application, the model suggests that the application be:')
     st.subheader(' ')
     st.subheader(result_text)
-    html_object = eli5.show_weights(xgc)
-    raw_html = html_object._repr_html_()
-    components.v1.html(raw_html)
+    
+    
+    
+#     html_object = eli5.show_weights(xgc)
+#     raw_html = html_object._repr_html_()
+#     components.v1.html(raw_html)
 
 
 
