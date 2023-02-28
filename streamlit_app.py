@@ -156,7 +156,7 @@ import plotly.express as px
 fig = go.Figure(go.Indicator(
     mode = "gauge+number",
     value = probability,
-    domain = {'x': [0, 1], 'y': [0, 1]},
+    domain = {'x': [0, 0.5], 'y': [0, 0.5]},
     title = {'text': "Probability to Repay", 'font': {'size': 28}},
     gauge = {
         'axis': {'range': [None, 1], 'tickwidth': 1, 'tickcolor': "white"},
