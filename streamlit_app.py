@@ -140,13 +140,26 @@ if results[0]["class"] == 1:
     result_text = ":green[APPROVED] - probability = {:.2f}".format(results[0]["score"])
 else:
     result_text = ":red[DENIED] - probability = {:.2f}".format(1-results[0]["score"])
+  
+  
+import plotly.graph_objects as go
+
+fig = go.Figure(go.Indicator(
+    mode = "gauge+number",
+    value = 270,
+    domain = {'x': [0, 1], 'y': [0, 1]},
+    title = {'text': "Speed"}))
+
+fig.show()
+
  
 row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
 with row4_1:
     st.subheader('After scoring this application, the model suggests that the application be:')
     st.subheader(' ')
     st.subheader(result_text)
-    
+    st.subheader(' ')
+    st.plotly_chart(fig, use_container_width=True)
     
     
 #     html_object = eli5.show_weights(xgc)
