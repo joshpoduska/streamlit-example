@@ -62,11 +62,10 @@ response = requests.post("https://prod-field.cs.domino.tech:443/models/640b3dcd4
     "sentence": fintext
   }
 }
-results.append(response.json().get('result'))
 
 ### Results ###
  
-probability = results[0]["score"]
+probability = 0.5
 
 if probability >= 0.6:
     result_text = ":green[APPROVED]"
@@ -102,7 +101,7 @@ fig.update_layout(paper_bgcolor = "#0e1117", font = {'color': "white", 'family':
 row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
 with row4_1:
     st.subheader('After scoring this application, the model suggests that the application be:')
-    st.subheader(' ')
+    st.subheader(response)
     st.subheader(result_text)
     st.subheader(' ')
     st.plotly_chart(fig, use_container_width=True)
