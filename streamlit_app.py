@@ -45,7 +45,7 @@ with row3_1:
 #################
 
 with st.form("my_form"):
-    fintext = st.text_input('Input text', '')
+    fintext = st.text_input('Input text', 'there is a shortage of capital, and we need extra financing')
     scored = st.form_submit_button("Score")
 
 setup_dict = {}
@@ -62,6 +62,7 @@ response = requests.post("https://prod-field.cs.domino.tech:443/models/640b3dcd4
     "sentence": fintext
   }
 })
+results.append(response.json().get('result'))
 
 ### Results ###
  
@@ -99,7 +100,9 @@ fig.update_layout(paper_bgcolor = "#0e1117", font = {'color': "white", 'family':
 
  
 row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
-with row4_1:
+with row4_1:    
+    st.subheader(results[0])
+    st.subheader(response)
     st.subheader('After scoring this application, the model suggests that the application be:')
     st.subheader(response)
     st.subheader(result_text)
