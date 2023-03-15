@@ -8,7 +8,7 @@
 import streamlit as st
 from streamlit import components
 import numpy as np
-# import pandas as pd
+import pandas as pd
 # import pickle
 # import time
 # from matplotlib import pyplot as plt
