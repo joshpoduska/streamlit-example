@@ -45,96 +45,23 @@ with row3_1:
 #################
 
 with st.form("my_form"):
-    checking_account_A14 = st.checkbox('Has a Checking Account')
-    credit_history_A34 = st.checkbox('Full Credit History')
-    property_A121 = st.checkbox('Property')
-    checking_account_A13 = st.checkbox('Checking Account Balance > 1000')
-    other_installments_A143 = st.checkbox('Other Installments')
-    debtors_guarantors_A103 = st.checkbox('Has Guarantors')
-    savings_A65 = st.checkbox('Has Savings Account')
-    employment_since_A73 = st.checkbox('Employed for > 5 Years')
-    savings_A61 = st.checkbox('Savings > 1000')
-    age = st.number_input('Insert applicant age', min_value = 20, max_value = 115)
+    fintext = st.text_input('Input text', '')
     scored = st.form_submit_button("Score")
-
-age_min, age_max = 21, 115
-age_std = (age - age_min) / (age_max - age_min)
-
-column_names = ["checking_account_A14", "credit_history_A34", "property_A121", "checking_account_A13", 
-                 "other_installments_A143", "debtors_guarantors_A103", "savings_A65", "age", 
-                 "employment_since_A73", "savings_A61"]
-
-column_names_all = ['duration', 'credit_amount', 'installment_rate', 'residence', 'age', 'credits', 'dependents', 
-                'checking_account_A11', 'checking_account_A12', 'checking_account_A13', 'checking_account_A14', 
-                'credit_history_A30', 'credit_history_A31', 'credit_history_A32', 'credit_history_A33', 
-                'credit_history_A34', 'purpose_A40', 'purpose_A41', 'purpose_A410', 'purpose_A42', 'purpose_A43', 
-                'purpose_A44', 'purpose_A45', 'purpose_A46', 'purpose_A48', 'purpose_A49', 'savings_A61', 
-                'savings_A62', 'savings_A63', 'savings_A64', 'savings_A65', 'employment_since_A71', 
-                'employment_since_A72', 'employment_since_A73', 'employment_since_A74', 'employment_since_A75', 
-                'status_A91', 'status_A92', 'status_A93', 'status_A94', 'debtors_guarantors_A101', 
-                'debtors_guarantors_A102', 'debtors_guarantors_A103', 'property_A121', 'property_A122', 
-                'property_A123', 'property_A124', 'other_installments_A141', 'other_installments_A142', 
-                'other_installments_A143', 'housing_A151', 'housing_A152', 'housing_A153', 'job_A171', 'job_A172', 
-                'job_A173', 'job_A174', 'telephone_A191', 'telephone_A192', 'foreign_worker_A201', 'foreign_worker_A202']
-    
-# Set some default values
-sample_data = [[0.4705882352941176, 0.3685484758446132, 0.3333333333333333, 0.3333333333333333, 
-                0.2857142857142857, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 
-                1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
-                1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 
-                1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0]]
-
-df_all = pd.DataFrame(sample_data, columns=column_names_all)
-
-# Override the values with what was passed to the scoring function
-df_all[["checking_account_A14"]] = checking_account_A14
-df_all[["credit_history_A34"]] = credit_history_A34
-df_all[["property_A121"]] = property_A121
-df_all[["checking_account_A13"]] = checking_account_A13
-df_all[["other_installments_A143"]] = other_installments_A143
-df_all[["debtors_guarantors_A103"]] = debtors_guarantors_A103
-df_all[["savings_A65"]] = savings_A65
-df_all[["age"]] = age
-df_all[["employment_since_A73"]] = employment_since_A73
-df_all[["savings_A61"]] = savings_A61
-
-for col in ['checking_account_A11', 'checking_account_A12', 'checking_account_A13', 'checking_account_A14', 
-                'credit_history_A30', 'credit_history_A31', 'credit_history_A32', 'credit_history_A33', 
-                'credit_history_A34', 'purpose_A40', 'purpose_A41', 'purpose_A410', 'purpose_A42', 'purpose_A43', 
-                'purpose_A44', 'purpose_A45', 'purpose_A46', 'purpose_A48', 'purpose_A49', 'savings_A61', 
-                'savings_A62', 'savings_A63', 'savings_A64', 'savings_A65', 'employment_since_A71', 
-                'employment_since_A72', 'employment_since_A73', 'employment_since_A74', 'employment_since_A75', 
-                'status_A91', 'status_A92', 'status_A93', 'status_A94', 'debtors_guarantors_A101', 
-                'debtors_guarantors_A102', 'debtors_guarantors_A103', 'property_A121', 'property_A122', 
-                'property_A123', 'property_A124', 'other_installments_A141', 'other_installments_A142', 
-                'other_installments_A143', 'housing_A151', 'housing_A152', 'housing_A153', 'job_A171', 'job_A172', 
-                'job_A173', 'job_A174', 'telephone_A191', 'telephone_A192', 'foreign_worker_A201', 'foreign_worker_A202']:
-    df_all[col] = df_all[col].astype('int')
-
-df = pd.DataFrame(columns=column_names, 
-                      data=[[checking_account_A14, credit_history_A34, property_A121, checking_account_A13,
-                             other_installments_A143, debtors_guarantors_A103, savings_A65, age_std, 
-                             employment_since_A73, savings_A61]])
 
 setup_dict = {}
 scoring_request = {}
 results = list()
-
-for n in range(df.shape[0]):
-    for i in list(df.columns):
-        setup_dict.update({i :list(df[n:n+1].to_dict().get(i).values())[0]})
-        scoring_request = {'data' : setup_dict}
-        
-        
-    response = requests.post("https://demo2.dominodatalab.com:443/models/63f889a99fb0fd477f3a599e/latest/model",
+    
+response = requests.post("https://prod-field.cs.domino.tech:443/models/640b3dcd46197615f41ce5f6/latest/model",
     auth=(
-        "B0HjcRkGR9YqicRzxRIN08rc2hor1vsZdPoR5mFF1BvvbR1iFRZZKRBgb8RWvGNv",
-        "B0HjcRkGR9YqicRzxRIN08rc2hor1vsZdPoR5mFF1BvvbR1iFRZZKRBgb8RWvGNv"
+        "qJst3g61jZrQqHPtcIknbOPhmbgrjdY0sJqjadkVUMBupjMvvDh084z0MIc6BfUc",
+        "qJst3g61jZrQqHPtcIknbOPhmbgrjdY0sJqjadkVUMBupjMvvDh084z0MIc6BfUc"
     ),
-        json=scoring_request
-    )
-    results.append(response.json().get('result'))
-
+    json={
+  "data": {
+    "sentence": fintext
+  }
+}
 
 ### Results ###
  
