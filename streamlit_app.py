@@ -9,17 +9,11 @@ import streamlit as st
 from streamlit import components
 import numpy as np
 import pandas as pd
-# import pickle
-# import time
-# from matplotlib import pyplot as plt
-# from  matplotlib.ticker import FuncFormatter
-# import seaborn as sns
 import requests
-# import eli5
-# import xgboost as xgb
-# import seaborn as sns
 
-# xgc = xgb.Booster(model_file="tune_best.xgb")
+def V_SPACE(lines):
+    for _ in range(lines):
+        st.write('&nbsp;')
 
 
 st.set_page_config(layout="wide")
@@ -34,11 +28,11 @@ row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, 
 with row0_1:
     st.title('Financial News Sentiment Analysis')
 with row0_2:
-    st.text("")
+    V_SPACE(1)
 row3_spacer1, row3_1, row3_spacer2 = st.columns((.1, 3.2, .1))
 with row3_1:
     st.subheader("Enter financial news text and click score to determine the sentiment of the text.")
-    st.markdown("")
+    V_SPACE(1)
     
 #################
 ### SELECTION ###
@@ -97,7 +91,7 @@ fig.update_layout(paper_bgcolor = "#0e1117", font = {'color': "white", 'family':
 row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
 with row4_1:    
     st.subheader('The sentiment of this financial text is:')
-    st.subheader("")
+    V_SPACE(1)
     st.subheader(result_text)
-    st.subheader(' ')
+    V_SPACE(1)
     st.plotly_chart(fig, use_container_width=True)
