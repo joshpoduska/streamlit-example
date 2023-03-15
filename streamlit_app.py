@@ -62,6 +62,7 @@ response = requests.post("https://prod-field.cs.domino.tech:443/models/640b3dcd4
     "sentence": fintext
   }
 }
+results.append(response.json().get('result'))
 
 ### Results ###
  
