@@ -37,22 +37,14 @@ with row0_2:
     st.text("")
 row3_spacer1, row3_1, row3_spacer2 = st.columns((.1, 3.2, .1))
 with row3_1:
-    st.markdown("Enter financial news text and click score to determine the sentiment of the text.")
+    st.subheader("Enter financial news text and click score to determine the sentiment of the text.")
     st.markdown("")
     
 #################
 ### SELECTION ###
 #################
 
-
-st.sidebar.text('')
-st.sidebar.text('')
-st.sidebar.text('')
-
-### SEASON RANGE ###
-st.sidebar.subheader("**Enter the application inputs to view the risk scores.**")
-st.sidebar.subheader("")
-with st.sidebar.form("my_form"):
+with st.form("my_form"):
     checking_account_A14 = st.checkbox('Has a Checking Account')
     credit_history_A34 = st.checkbox('Full Credit History')
     property_A121 = st.checkbox('Property')
@@ -64,9 +56,6 @@ with st.sidebar.form("my_form"):
     savings_A61 = st.checkbox('Savings > 1000')
     age = st.number_input('Insert applicant age', min_value = 20, max_value = 115)
     scored = st.form_submit_button("Score")
-
-# baseline = 'domino/datasets/local/CreditRisk/data/train_data_0.csv'
-# df_cr = pd.read_csv(baseline)
 
 age_min, age_max = 21, 115
 age_std = (age - age_min) / (age_max - age_min)
