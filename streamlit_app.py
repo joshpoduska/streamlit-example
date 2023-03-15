@@ -66,14 +66,8 @@ results.append(response.json().get('result'))
 
 ### Results ###
  
-probability = 0.5
-
-if probability >= 0.6:
-    result_text = ":green[APPROVED]"
-elif probability >= 0.4:
-    result_text = ":yellow[UNDETERMINED - MANUAL REVIEW REQUIRED]"
-else:
-    result_text = ":red[DENIED]"
+probability = results[0]["score"]
+result_text = results[0]["label"]
   
   
 import plotly.graph_objects as go
@@ -101,10 +95,8 @@ fig.update_layout(paper_bgcolor = "#0e1117", font = {'color': "white", 'family':
  
 row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
 with row4_1:    
-    st.subheader(results[0])
-    st.subheader(response)
-    st.subheader('After scoring this application, the model suggests that the application be:')
-    st.subheader(response)
+    st.subheader('The sentiment of this financial text is:')
+    st.subheader("")
     st.subheader(result_text)
     st.subheader(' ')
     st.plotly_chart(fig, use_container_width=True)
