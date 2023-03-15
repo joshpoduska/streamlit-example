@@ -32,11 +32,12 @@ st.set_page_config(layout="wide")
 
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
 with row0_1:
-    st.title('Credit Application Risk Scores')
+    st.title('Financial News Sentiment Analysis')
 with row0_2:
     st.text("")
 row3_spacer1, row3_1, row3_spacer2 = st.columns((.1, 3.2, .1))
 with row3_1:
+    st.markdown("Enter financial news text and click score to determine the sentiment of the text.")
     st.markdown("")
     
 #################
