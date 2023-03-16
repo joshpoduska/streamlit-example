@@ -90,13 +90,13 @@ fig = px.bar(df, x='label', y='score',
 
 fig.update_layout(paper_bgcolor = "#0e1117", font = {'color': "white", 'family': "Arial"})
 
-df.sort_values(by='score', ascending=False, inplace=True)
-result_text = df.label.values[0]
-result_prob = round(df.score.values[0], 4)
+df_sorted = =df.sort_values(by='score', ascending=False)
+result_text = df_sorted.label.values[0]
+result_prob = round(df_sorted.score.values[0], 4)
  
 row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
 with row4_1:    
-    st.subheader('The sentiment of this financial text is ' + result_text + ' with probability of ' + result_prob)
+    st.subheader('The sentiment of this financial text is ' + result_text + ' with probability of ' + str(result_prob))
     V_SPACE(2)
-    st.subheader(result_prob)
+    st.subheader(Full Model Results)
     st.plotly_chart(fig, use_container_width=True)
