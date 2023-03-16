@@ -23,7 +23,7 @@ with row0_2:
     V_SPACE(1)
 row3_spacer1, row3_1, row3_spacer2 = st.columns((.1, 3.2, .1))
 with row3_1:
-    st.subheader("Enter financial news text and click score to determine the sentiment of the text")
+    st.subheader("Enter financial news text and click score to determine the sentiment")
     V_SPACE(1)
     
 #################
