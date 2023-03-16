@@ -80,6 +80,6 @@ fig.update_layout(paper_bgcolor = "#0e1117", font = {'color': "white", 'family':
 row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
 with row4_1:    
     st.subheader('The sentiment of this financial text is ' + result_text + ' with probability of ' + str(result_prob))
-    V_SPACE(2)
+    V_SPACE(1)
     st.subheader('Results For Each Label')
     st.plotly_chart(fig, use_container_width=True)
