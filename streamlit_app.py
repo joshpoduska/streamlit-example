@@ -47,10 +47,16 @@ setup_dict = {}
 scoring_request = {}
 results = list()
 
-response = requests.post("https://prod-field.cs.domino.tech:443/models/640b3dcd46197615f41ce5f6/latest/model",
+# response = requests.post("https://prod-field.cs.domino.tech:443/models/640b3dcd46197615f41ce5f6/latest/model",
+#     auth=(
+#         "qJst3g61jZrQqHPtcIknbOPhmbgrjdY0sJqjadkVUMBupjMvvDh084z0MIc6BfUc",
+#         "qJst3g61jZrQqHPtcIknbOPhmbgrjdY0sJqjadkVUMBupjMvvDh084z0MIc6BfUc"
+#     ),
+
+response = requests.post("https://prod-field.cs.domino.tech:443/models/641356d19faea51184b824ef/latest/model",
     auth=(
-        "qJst3g61jZrQqHPtcIknbOPhmbgrjdY0sJqjadkVUMBupjMvvDh084z0MIc6BfUc",
-        "qJst3g61jZrQqHPtcIknbOPhmbgrjdY0sJqjadkVUMBupjMvvDh084z0MIc6BfUc"
+        "z66uvumdWXlLgaYm4flzFCykLseVpKN3EXfWPHrncyPIZ8X8uhvIUDRLGI2A1Wby",
+        "z66uvumdWXlLgaYm4flzFCykLseVpKN3EXfWPHrncyPIZ8X8uhvIUDRLGI2A1Wby"
     ),
     json = {
               "data": {
@@ -95,4 +101,5 @@ with row4_1:
     V_SPACE(1)
     st.subheader(result_text)
     V_SPACE(1)
+    st.subheader(response)
     st.plotly_chart(fig, use_container_width=True)
