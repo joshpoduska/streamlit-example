@@ -68,29 +68,26 @@ results.append(response.json().get('result'))
 
 ### Results ###
  
-probability = results[0]["score"]
-result_text = results[0]["label"]
+#probability = results[0]["score"]
+#result_text = results[0]["label"]
+
+labels = []
+scores = []
+for s in results[0]:
+    labels.append(s["label"])
+    scores.append(s["score"])
+    
+df = pd.DataFrame(columns = ['label', 'score'])
+df.label = labels
+df.score = scores
   
   
-import plotly.graph_objects as go
+#import plotly.graph_objects as go
 import plotly.express as px
 
-fig = go.Figure(go.Indicator(
-    mode = "gauge+number",
-    value = probability,
-    domain = {'x': [0, 1], 'y': [0, 1]},
-    title = {'text': "Probability to Repay", 'font': {'size': 28}},
-    gauge = {
-        'axis': {'range': [None, 1], 'tickwidth': 1, 'tickcolor': "white"},
-        'bar': {'color': "white"},
-        'bgcolor': "red",
-        'borderwidth': 2,
-        'bordercolor': "white",
-        'steps': [
-            {'range': [0, 0.4], 'color': px.colors.qualitative.Plotly[1]},
-            {'range': [0.4, 0.6], 'color': px.colors.qualitative.Plotly[9]},         
-            {'range': [0.6, 1], 'color': px.colors.qualitative.Plotly[2]}]
-        }))
+fig = px.bar(df, x='label', y='score',
+             hover_data=['label', 'score'], color='score', height=400, 
+             color_continuous_scale=px.colors.sequential.Viridis_r)
 
 fig.update_layout(paper_bgcolor = "#0e1117", font = {'color': "white", 'family': "Arial"})
 
