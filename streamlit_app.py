@@ -32,7 +32,7 @@ with row0_2:
     V_SPACE(1)
 row3_spacer1, row3_1, row3_spacer2 = st.columns((.1, 3.2, .1))
 with row3_1:
-    st.subheader("Enter financial news text and click score to determine the sentiment of the text.")
+    st.subheader("Enter financial news text and click score to determine the sentiment of the text")
     V_SPACE(1)
     
 #################
@@ -98,5 +98,5 @@ row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
 with row4_1:    
     st.subheader('The sentiment of this financial text is ' + result_text + ' with probability of ' + str(result_prob))
     V_SPACE(2)
-    st.subheader('Full Model Results')
+    st.subheader('Results For Each Label')
     st.plotly_chart(fig, use_container_width=True)
