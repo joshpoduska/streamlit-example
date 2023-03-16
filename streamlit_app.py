@@ -1,10 +1,3 @@
-###########################################################################################################
-###########################################################################################################
-###########################################################################################################
-###########################################################################################################
-###########################################################################################################
-###########################################################################################################
-
 import streamlit as st
 from streamlit import components
 import numpy as np
@@ -19,8 +12,6 @@ def V_SPACE(lines):
 
 st.set_page_config(layout="wide")
 
-
-    
 ####################
 ### INTRODUCTION ###
 ####################
@@ -43,15 +34,7 @@ with st.form("my_form"):
     fintext = st.text_input('Input text', 'there is a shortage of capital, and we need extra financing')
     scored = st.form_submit_button("Score")
 
-setup_dict = {}
-scoring_request = {}
 results = list()
-
-# response = requests.post("https://prod-field.cs.domino.tech:443/models/640b3dcd46197615f41ce5f6/latest/model",
-#     auth=(
-#         "qJst3g61jZrQqHPtcIknbOPhmbgrjdY0sJqjadkVUMBupjMvvDh084z0MIc6BfUc",
-#         "qJst3g61jZrQqHPtcIknbOPhmbgrjdY0sJqjadkVUMBupjMvvDh084z0MIc6BfUc"
-#     ),
 
 response = requests.post("https://prod-field.cs.domino.tech:443/models/641356d19faea51184b824ef/latest/model",
     auth=(
@@ -67,9 +50,6 @@ response = requests.post("https://prod-field.cs.domino.tech:443/models/641356d19
 results.append(response.json().get('result'))
 
 ### Results ###
- 
-#probability = results[0]["score"]
-#result_text = results[0]["label"]
 
 labels = []
 scores = []
@@ -80,6 +60,13 @@ for s in results[0]:
 df = pd.DataFrame(columns = ['label', 'score'])
 df.label = labels
 df.score = scores
+df_sorted = df.sort_values(by='score', ascending=False)
+result_text = df_sorted.label.values[0]
+result_prob = round(df_sorted.score.values[0], 4)
+    
+#################
+### VIZ ###
+#################
 
 #import plotly.graph_objects as go
 import plotly.express as px
@@ -89,10 +76,6 @@ fig = px.bar(df, x='label', y='score',
              color_continuous_scale=px.colors.sequential.Viridis_r)
 
 fig.update_layout(paper_bgcolor = "#0e1117", font = {'color': "white", 'family': "Arial"})
-
-df_sorted = df.sort_values(by='score', ascending=False)
-result_text = df_sorted.label.values[0]
-result_prob = round(df_sorted.score.values[0], 4)
  
 row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
 with row4_1:    
