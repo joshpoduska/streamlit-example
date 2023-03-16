@@ -96,7 +96,7 @@ row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
 with row4_1:    
     st.subheader('The sentiment of this financial text is:')
     V_SPACE(1)
-    st.subheader(result_text)
+    #st.subheader(result_text)
     V_SPACE(1)
     st.subheader(response)
     st.plotly_chart(fig, use_container_width=True)
