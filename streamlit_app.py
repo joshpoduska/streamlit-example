@@ -98,5 +98,5 @@ row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
 with row4_1:    
     st.subheader('The sentiment of this financial text is ' + result_text + ' with probability of ' + str(result_prob))
     V_SPACE(2)
-    st.subheader(Full Model Results)
+    st.subheader('Full Model Results')
     st.plotly_chart(fig, use_container_width=True)
